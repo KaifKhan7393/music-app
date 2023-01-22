@@ -1,0 +1,412 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Poppins', sans-serif;
+  color: #000;
+  overflow-x: hidden;
+}
+
+.space {
+  padding: 0 5%;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.btn {
+  text-decoration: none;
+  border: .1rem solid #EC5659;
+  padding: .5rem 1rem;
+  border-radius: 1.5rem;
+  color: #EC5659;
+  font-size: 1rem;
+}
+
+@mixin flexProp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .desktop {
+    display: none !important;
+  }
+}
+
+// Header part start
+.header {
+  width: 100%;
+  height: 6rem;
+  background: #F5F5F5;
+  @include flexProp;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .nav {
+    @include flexProp;
+    min-width: 20rem;
+
+    & .header__logo img {
+      width: 12rem;
+      height: 5rem;
+      object-fit: cover;
+    }
+
+    @media(max-width: 768px) {
+      width: 100%;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      margin-top: 1rem;
+    }
+  }
+
+  .header__searchBar {
+    width: 100%;
+    max-width: 50rem;
+    background: #fff;
+    padding: .5rem 1rem;
+    border: .1rem solid #f2f2f2;
+    color: #f5f5f5;
+    border-radius: 2rem;
+
+    & form {
+      @include flexProp;
+
+      & input {
+        width: 100%;
+        outline: none;
+        border: none;
+        padding: 0.5rem 1rem;
+        background: transparent;
+      }
+    }
+  }
+
+  .header__buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .header__loginBtns {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+// Heade part end
+
+// Sidebar part start
+.sidebar {
+  width: 100%;
+  max-width: 30rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: all 0.3s ease-in-out;
+
+  .sidebar__login {
+    @include flexProp;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  .sidebar__lists {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 4rem;
+
+  }
+}
+
+
+//Sidebar part end
+
+// Categories Buttons start
+.categories {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  overflow-x: auto;
+  padding: 0 5%;
+
+  &::-webkit-scrollbar {
+    display: none;
+    appearance: none;
+    -moz-appearance: none;
+  }
+
+  .categories__btn {
+    width: 100%;
+    min-width: 15rem;
+    max-width: 25rem;
+    padding: 1rem 2rem;
+    border-radius: 1.8rem;
+    background: #fff;
+    border: .1rem solid #f2f2f2;
+    color: #000;
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: #EC5659;
+      color: #fff;
+    }
+  }
+}
+
+// Categories Buttons End
+
+.link__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+// Song Banner start
+.songCard__banner {
+  width: 100%;
+  height: 100%;
+  min-width: 35rem;
+  position: relative;
+
+  @media (max-width:786px) {
+    min-width: 45%;
+  }
+
+  &:hover {
+    opacity: .8;
+  }
+
+  .songImg__banner {
+    .song__bannerImg {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 4/2;
+    }
+  }
+}
+
+// Song Banner end
+
+// Song Banner start 
+.songbanner {
+  margin: 0 5%;
+  display: flex;
+  gap: 2rem;
+  overflow-x: scroll;
+  margin-top: 2rem;
+
+
+  &::-webkit-scrollbar {
+    display: none;
+    appearance: none;
+    -moz-appearance: none;
+  }
+}
+
+// Song Banner ends
+
+
+// Song card start
+.songcard {
+  width: 16rem;
+  min-width: 16rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width:786px) {
+    min-width: 47%;
+    max-width: 47%;
+  }
+
+  .songImg {
+    position: relative;
+    border-radius: .6rem;
+
+    &:hover {
+      opacity: .8;
+    }
+
+
+    .song__Img {
+      width: 100%;
+      height: 100%;
+      min-width: 16rem;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: .6rem;
+
+      @media (max-width:786px) {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &:hover {
+      .songPlay__btn {
+        display: flex;
+      }
+    }
+
+  }
+
+  .songPlay__btn {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: #2d2d2d;
+    cursor: pointer;
+    @include flexProp();
+    display: none;
+    justify-content: center;
+  }
+
+  .song__name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #c0bdbd;
+    }
+  }
+
+  .song__artist {
+    font-size: 1.2rem;
+    color: #888787;
+
+  }
+}
+
+// Song card ends 
+// Songs start
+.songs {
+  width: 100%;
+  margin-top: 4rem;
+  padding: 0 5%;
+
+  .songs__lists {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+      appearance: none;
+      -moz-appearance: none;
+    }
+
+    @media(max-width:767px) {
+      overflow-x: hidden;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
+
+// Songs End
+
+// Artist Card start
+.artist__card {
+  .artistImg {
+    border-radius: 50%;
+
+    .artist__img {
+      border-radius: 50%;
+    }
+  }
+
+  .artist__name {
+    text-align: center;
+  }
+}
+
+// Artist Card End
+
+// Player start
+.player {
+  position: fixed;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+
+  .player__audio {
+    width: 100%;
+    padding: 0 5%;
+
+    .rhap_container {
+      // Overwrite the progress bar style while the audio is paused
+      background-color: #fff;
+      box-shadow: none;
+    }
+
+    .rhap_progress-filled {
+      height: 100%;
+      position: absolute;
+      z-index: 2;
+      background-color: #f05050;
+      border-radius: 2px;
+    }
+
+    .rhap_progress-indicator {
+      background: #f05050;
+    }
+
+    .rhap_main-controls-button {
+      color: #f05050;
+    }
+  }
+}
+
+// Player end
+
+// Footer start
+.footer {
+  padding: 2rem 5%;
+  text-align: center;
+  margin-top: 5rem;
+  background-color: #F5F5F5;
+}
